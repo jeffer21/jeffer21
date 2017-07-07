@@ -1,9 +1,11 @@
 class TasksController < ApplicationController
+
   def index
     @tasks = Task.all
   end
   def show
-    @task = Task.find(params[:id])
+    find_by_id
+    @sub_task = SubTask.new
   end
   def new
     @task = Task.new

@@ -7,9 +7,9 @@
       method: :delete,
       data: { confirm: "Are you sure?" } %>
 
-<%=form_for(@sub_task) do |f| %>
-  <%= f.label :description %>
-  <%= f.text_field :description %>
+<%= simple_form_for [@task, @sub_task] do |f| %>
+  <%= f.input :name %>
+  <%= f.association :task, value_method: :id, label_method: :name %>
 
   <%= f.submit %>
 <% end %>

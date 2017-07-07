@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   # patch '/tasks/:id', to: 'tasks#update'
   # delete "/tasks/:id", to: "tasks#destroy"
 
-resources :tasks
-resources :sub_tasks
+  resources :tasks do
+    resources :sub_tasks, only: [:create]
+  end
+  root to: "tasks#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
